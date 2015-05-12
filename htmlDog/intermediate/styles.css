@@ -1,0 +1,65 @@
+/* # is for ID, . is for class; ID is for one item, class is for more than one */
+/* #top {
+	background-color: #ccc;
+	padding: 20px;
+} */
+
+.intro {
+	color: red;
+	font-weight: bold;
+} 
+
+/* Grouping */
+
+/* h2, .thisClass, .thatClass {
+	color: red;
+} */
+
+/* Nesting */
+
+#top {
+	background-color: #ccc;
+	padding: 1em;
+}
+
+#top h1 {
+	color: #ff0;
+}
+
+#top p {
+	color: red;
+	font-weight: bold; 
+}
+
+/* Pseudo classes */
+/* Links */
+
+a:link {
+	color: blue;
+}
+
+a:visited {
+	color: purple;
+}
+
+/* dynamic pseudo classes */ 
+
+a:active {
+	color: red;
+}
+
+a:hover {
+	text-decoration: none;
+	color: blue;
+	background-color: yellow;
+}
+
+input:focus, textarea:focus {
+	background: #eee;
+}
+
+/* First Children */
+p:first-child {
+	font-weight: bold;
+	font-size: 40px;
+}
