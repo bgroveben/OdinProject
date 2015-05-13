@@ -82,3 +82,46 @@ p {
 body {
     background: white url(http://www.htmldog.com/badge1.gif) no-repeat top right;
 }
+
+/* Display: inline, block, none */
+/* The display property also offers table-column, table-row-group, table-column-group, table-header-group, table-footer-group, and table-caption */
+
+/* Pseudo Elements take the form of selector:pseudoelement { property: value; } */
+
+p {
+	font-size: 12px;
+}
+
+p:first-letter {
+	font-size: 24px;
+	float: left;
+}
+
+p:first-line {
+	font-weight: bold;
+}
+ /* CSS3 specs suggest pseudo elements should have two colons to differentiate them from pseduo classes */
+
+ /* Before and After Content */
+
+ blockquote:before {
+ 	content: open-quote;
+ }
+
+ blockquote:after {
+ 	content: close-quote;
+ }
+
+ li:before {
+ 	content: "POW! ";
+ }
+
+ p:before {
+ 	content: url(images/jam.jpg);
+ }
+
+  li:before {
+ 	content: "POW! ";
+ 	background: red;
+ 	color: #fc0;
+ }
