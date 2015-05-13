@@ -63,3 +63,14 @@ p:first-child {
 	font-weight: bold;
 	font-size: 40px;
 }
+
+/* Shorthand Properties */
+
+p {
+	font: 14px/1.5 "Times New Roman", times, serif;
+	padding: 30px 10px;  /* If there are 2 properties instead of four, the first is top/bottom, the second is left/right */
+	border: 1px black solid;
+	border-width: 1px 5px 5px 1px;
+	border-color: red green blue yellow;
+	margin: 10px 50px; /* same rules as padding */
+}
