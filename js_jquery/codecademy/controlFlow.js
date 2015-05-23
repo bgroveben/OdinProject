@@ -129,3 +129,14 @@ var nap = function() {
 };
 
 
+// The Not operator ! makes true statements false and false statements true.
+var programming = false;
+
+var happy = function() {
+    if (!programming) {
+        return true;    
+    }
+    else {
+        return false;    
+    }
+};
