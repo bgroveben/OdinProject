@@ -97,3 +97,35 @@ switch(answer) {
     default:
       console.log("Computer geekery with " + answer + " is all good!");
 }
+
+
+// Logical Operators in JavaScript: and (&&) or (||) not (!)
+
+// And operator &&
+var hungry = true;
+var foodHere = true;
+
+var eat = function() {
+  if (hungry && foodHere) {
+    return true;    
+  }
+  else {
+    return false    
+  }
+};
+
+
+// The Or operator || evaluates to true when one, or the other, or both expressions are true
+var tired = true;
+var bored = false;
+
+var nap = function() {
+    if (tired || bored) {
+        return true    
+    }
+    else {
+        return false    
+    }  
+};
+
+
