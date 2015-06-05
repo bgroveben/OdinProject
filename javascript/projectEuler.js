@@ -68,17 +68,44 @@ var sieve = function(n) {
 // The above code is very thorough, but is not quite what I'm looking for beacuse the run time is so long.
 // In addition to the code above, I would then have to go through each of the resulting numbers to find which ones
 // are prime factors of 600851475143.
-// I used the code below instead.
+// I used the code below instead. The while loop executes until the largest prime factor of 600851475143 is found.
 var optimusPrime = function(x) {
     var i = 2;
     while (i <= x) {
-        if (x % i === 0) {
-            x /= i;
+        if (x % i === 0) {  // check to see if i is divisible by x
+            x /= i;  // x = x/i, working our way up to the largest prime factor
         }
         else {
-            i++;
+            i++;  // lather, rinse, repeat 
         }
+        console.log(i);  // In this case, all numbers from 3 to 6857 are printed out
     }
     return i;
 };
 optimusPrime(600851475143);
+// When I tried this code on other numbers, the browser crashed, so I think I understand why it works, but I'm not quite sure.
+// Also, what if the output 6857 wasn't a prime factor, but just a factor that happened to be prime?
+// Project Euler says I got the right answer, but this method may have some flaws.
+// So... I found this on a Github gist --https://gist.github.com/andyhd/3216358-- and it actually returned 
+// much more desirable and predictable results, meaning I got the correct answer and it didn't crash my browser when I changed
+// the value of n.
+function factors(n) {
+  var i;
+  var out = [];
+  var sqrt_n = Math.sqrt(n);
+  for (i = 2; i <= sqrt_n; i++) {
+    if (n % i === 0) {
+      out.push(i);
+    }
+  }
+  return out;
+}
+function primep(n) {
+  return factors(n).length === 0;
+}
+function largestPrimeFactor(n) {
+  return factors(n).filter(primep).pop();
+}
+largestPrimeFactor(600851475143);
+// For a thorough explanation of why the above program works see:
+// https://tomajwinter.wordpress.com/2013/06/26/26-06-13-javascript-koans-highest-prime/
