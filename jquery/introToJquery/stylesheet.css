@@ -1,0 +1,21 @@
+div {
+	height: 100px;
+	width: 100px;
+	display: inline-block;
+}
+
+#red {
+	background-color: #ff0000;
+}
+
+#blue {
+	background-color: #0000ff;
+}
+
+#yellow {
+	background-color: #e2be22;
+}
+
+#green {
+	background-color: #008800;
+}
