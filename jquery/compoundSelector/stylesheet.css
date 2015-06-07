@@ -1,0 +1,15 @@
+div	{
+	height: 50px;
+	width: 50px;
+	border-radius: 100%;
+	background-color: #ff9c5b;
+	display: inline-block;
+}
+
+.red {
+	background-color: #e84a5f;
+}
+
+.pink {
+	background-color: #ff847c;
+}
