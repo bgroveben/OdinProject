@@ -22,7 +22,7 @@ end
 
 def kaprekar?(k)
   if k == 1
-    true
+    true  # because 1 is a Kaprekar number, that's why
   else
     digits = k.to_s.size
     square = (k ** 2).to_s
