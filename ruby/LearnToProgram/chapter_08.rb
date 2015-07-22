@@ -3,6 +3,9 @@
 # Expand upon englishNumber. First, put in thousands. 
 # So it should return 'one thousand' instead of 'ten hundred' and 'ten thousand' instead of 'one hundred hundred'.
 
+# Expand upon englishNumber some more. Now put in millions, so you get 'one million' instead of 'one thousand thousand'. 
+# Then try adding billions and trillions. How high can you go? I think I'll stop at billions.
+
 def english_number(number)
   if number < 0  # No negative numbers.
     return 'Please enter a number zero or greater.'
@@ -10,8 +13,6 @@ def english_number(number)
   if number == 0
     return 'zero'
   end
-
-  # No more special cases! No more returns!
 
   num_string = ''  # This is the string we will return.
 
@@ -25,38 +26,51 @@ def english_number(number)
   # "write" is the part we are writing out right now.
   # write and left... get it?  :)
 
-
-  left  =  number 
-  write = left/1000           # How many thousands left to write out?
-  left  = left - write*1000   # Subtract off those thousands.
+  left  =  number
+  write = left/1_000_000_000           # How many billions left to write out?
+  left  = left - write*1_000_000_000   # Subtract off those billions.
 
   if write > 0
-    thousands   = english_number(write)
-    num_string = num_string + thousands + ' thousand'
-
+    billions   = english_number(write)
+    num_string = num_string + billions + ' billion'
     if left > 0
-      # So we don't write 'two hundredfifty-one'...
+      # So we don't write 'one billionthree million....'
       num_string = num_string + ' '
     end
   end
 
-  write = left/100          # How many hundreds left to write out?
-  left  = left - write*100  # Subtract of  those hundreds.
-
+  write = left/1_000_000
+  left  = left - write*1_000_000
   if write > 0
-    # Now here's a really sly trick
+    millions   = english_number(write)
+    num_string = num_string + millions + ' million'
+    if left > 0
+      num_string = num_string + ' '
+    end
+  end
+
+  write = left/1000           
+  left  = left - write*1000  
+  if write > 0
+    thousands   = english_number(write)
+    num_string  = num_string + thousands + ' thousand'
+    if left > 0
+      num_string = num_string + ' '
+    end
+  end
+
+  write = left/100          
+  left  = left - write*100  
+  if write > 0
     hundreds   = english_number(write)
     num_string = num_string + hundreds + ' hundred'
-
     if left > 0
-      # So we don't write 'two hundredfifty-one'...
       num_string = num_string + ' '
     end
   end
   
-  write = left/10          # How many tens left to write out?
-  left  = left - write*10  # Subtract off those tens.
-
+  write = left/10          
+  left  = left - write*10  
   if write > 0
     if ((write == 1) and (left > 0))
       # Since we can't write 'tenty-two' instead of 'twelve', we have to make a special case for these.
@@ -68,16 +82,14 @@ def english_number(number)
       num_string = num_string + tens_place[write - 1]
       # The '-1' is because tens_place[3] is 'forty', not 'thirty'.
     end
-
     if left > 0
       # So we don't write 'sixtyfour'...
       num_string = num_string + '-'
     end
   end
 
-  write = left  # How many ones left to write out?
-  left  = 0     # Subtract off those ones.
-
+  write = left  
+  left  = 0     
   if write > 0
     num_string = num_string + ones_place[write - 1]
     # The '-1' is because, you guessed it, ones_place[3] is 'four', not 'three'.
@@ -106,9 +118,10 @@ puts english_number(9395)
 puts english_number(12236)
 puts english_number(123456)
 puts english_number(987654)
-
-# Expand upon englishNumber some more. Now put in millions, so you get 'one million' instead of 'one thousand thousand'. 
-# Then try adding billions and trillions. How high can you go?
+puts english_number(1_000_000)
+puts english_number(2_345_678)
+puts english_number(1_000_000_000)
+puts english_number(2_345_678_901)
 
 =begin 
 How about weddingNumber? It should work almost the same as englishNumber, except that it should insert the word "and" all over the place, returning things like 'nineteen hundred and seventy and two', or however wedding invitations are supposed to look. 
