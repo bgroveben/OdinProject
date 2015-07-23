@@ -116,6 +116,7 @@ puts english_number(100)
 puts english_number(101)
 puts english_number(234)
 puts english_number(1000)
+puts english_number(1100)
 puts english_number(1101)
 puts english_number(2222)
 puts english_number(3211)
@@ -127,8 +128,39 @@ puts english_number(1_000_000)
 puts english_number(2_345_678)
 puts english_number(1_000_000_000)
 puts english_number(2_345_678_901)
- 
+puts
+
 
 =begin 
 "Ninety-nine bottles of beer..." Using englishNumber and your old program, write out the lyrics to this song the right way this time. Punish your computer: have it start at 9999. (Don't pick a number too large, though, because writing all of that to the screen takes your computer quite a while. A hundred thousand bottles of beer takes some time; and if you pick a million, you'll be punishing yourself as well!
 =end 
+
+time = Time.now
+
+def bottles_of_beer(bottles)
+  while bottles != 0
+    puts english_number(bottles).to_s + ' bottles of beer on the wall'
+    puts english_number(bottles).to_s + ' bottles of beer'
+    bottles = bottles - 1
+    puts 'take one down, pass it around'
+
+    if bottles == 1
+      puts english_number(bottles).to_s + ' bottle of beer on the wall'
+    else 
+      puts english_number(bottles).to_s + ' bottles of beer on the wall'
+    end
+    puts
+    if bottles == 1
+      puts english_number(bottles).to_s + ' bottle of beer on the wall'
+      puts english_number(bottles).to_s + ' bottle of beer'
+      bottles = bottles - 1
+      puts 'take one down, pass it around'
+      puts english_number(bottles).to_s + ' bottles of beer on the wall'
+    end 
+  end
+end
+
+puts bottles_of_beer(100_000)
+
+elapsed_time = Time.now - time 
+puts elapsed_time.to_s + ' seconds to execute.'
