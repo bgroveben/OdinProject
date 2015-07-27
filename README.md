@@ -3,4 +3,4 @@ This is a collection of programs, apps, and notes that I am accumulating while w
 http://www.theodinproject.com/web-development-101/ruby-basics
 Course List >> Web Development 101 >> The Back End >> 2: Ruby Basics
 
-Chris Pine Learn to Program Online edition. Chapter 10 'A Few Things to Try'.
+Chris Pine Learn to Program Online edition. Chapter 11 'Beyond This Tutorial'.
